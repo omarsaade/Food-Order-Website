@@ -34,6 +34,7 @@ include('partials/menu.php')
 
     </div>
     <!-- dispay text -->
+    <!-- dispay text -->
 </div>
 <!-- Main Content Section Ends -->
 
