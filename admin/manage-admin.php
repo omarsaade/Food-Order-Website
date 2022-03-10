@@ -41,6 +41,7 @@
                 if ($count > 0) {
                     //we have data in database
                     while ($rows = mysqli_fetch_assoc(($res))) {
+
                         //using while loop to get all the data from database
                         //and shile loop will run as long we have data in database
                         //get individual Data

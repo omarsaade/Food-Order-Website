@@ -73,6 +73,7 @@ if (isset($_POST['submit'])) {
     ";
 
     //3-Executing Query and Saving Data into Database
+    //save data in database men 5ilel rabton bi baad
     $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
     // 4-chech whether the (query is executed) data is inserted on not and display 
