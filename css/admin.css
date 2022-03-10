@@ -83,6 +83,14 @@ font-weight: bold;
         }
         
 
+        .success {
+        color: #2ed573;
+        }
+
+        .error {
+          color: #ff4757;
+        }
+
 
 
 /* css for menu */
