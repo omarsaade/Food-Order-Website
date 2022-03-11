@@ -147,3 +147,10 @@ float: left;
   color: white;
 }
 
+/* css for login */
+.login {
+    width: 20%;
+    border: 1px solid black;
+    margin: 10% auto;
+    padding: 2%;
+}
