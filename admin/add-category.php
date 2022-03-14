@@ -18,6 +18,11 @@ name is the original name of the file which is store on the local machine. -->
             unset($_SESSION['add']);
         }
 
+        if (isset($_SESSION['upload'])) {
+            echo $_SESSION['upload'];
+            unset($_SESSION['upload']);
+        }
+
         ?>
 
         <br> <br>
@@ -109,17 +114,53 @@ name is the original name of the file which is store on the local machine. -->
 
             //check whether the image is selected or not and set the value from name accordingly
             //print_r can display the value of array but echo can't
-            print_r($_FILES['image']);
+            // print_r($_FILES['image']);
+            // die(); //break the code here
+
+            //iza 3anda esem m3ayan el image lah yen3amala upload
+            if (isset($_FILES['image']['name'])) { //select lal name property['name']
+
+                //upload the Image
+                //to upload image we need , image name , source path and destination path
+                $image_name = $_FILES['image']['name'];
 
 
-            die(); //break the code here
+                //AUto rename our image
+                //Get the Extension of our image (jpg,png,gif,etc) e.g "food1.jpg"
+                //explode function to get the extension (.jpg)
+                $ext = end(explode('.', $image_name)); //ne7sal 3al jpg
+
+                //Rename the Image now
+                $image_name = "Food_category_" . rand(000, 999) . '.' . $ext; //e.g. 
+                //Food_Category_262.jpg
 
 
 
+                $source_path = $_FILES['image']['tmp_name'];
+
+                $destination_path = "../images/category/" . $image_name;
+
+                //Finally Upload the Image
+                $upload = move_uploaded_file($source_path, $destination_path);
 
 
 
+                //check whether the image is uploaded or not
+                //And if the image is not uploaded then we will stop the process and redirect with error message
 
+                if ($upload == false) {
+
+                    //set message
+                    $_SESSION['upload'] = "<div class='error'>Failed to upload Image.</div>";
+                    //Redirect to add category page
+                    header('location:' . SITEURL . 'admin/add-category.php');
+                    //stop the Process
+                    die();
+                }
+            } else {
+                //Dont upload Image and set the image_name value as blank
+                $image_name = "";
+            }
 
 
 
@@ -129,6 +170,7 @@ name is the original name of the file which is store on the local machine. -->
             //2.create sql query to insert category into database
             $sql = "INSERT INTO tbl_category SET
             title='$title',
+            image_name='$image_name',
             featured='$featured',
             active='$active'
             ";
