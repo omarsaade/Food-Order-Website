@@ -114,7 +114,7 @@ name is the original name of the file which is store on the local machine. -->
 
             //check whether the image is selected or not and set the value from name accordingly
             //print_r can display the value of array but echo can't
-            // print_r($_FILES['image']);
+            // print_r($_FILES['image']['name']); Screenshot (51).png
             // die(); //break the code here
 
             //iza 3anda esem m3ayan el image lah yen3amala upload
@@ -122,7 +122,7 @@ name is the original name of the file which is store on the local machine. -->
 
                 //upload the Image
                 //to upload image we need , image name , source path and destination path
-                $image_name = $_FILES['image']['name'];
+                $image_name = $_FILES['image']['name']; // he fia esem el sura bas  => Screenshot (51).png
 
 
                 //AUto rename our image
@@ -136,9 +136,9 @@ name is the original name of the file which is store on the local machine. -->
 
 
 
-                $source_path = $_FILES['image']['tmp_name'];
+                $source_path = $_FILES['image']['tmp_name']; //  he fia el esem wel tempor location   =>C:\xampp\tmp\php79FB.tmp
 
-                $destination_path = "../images/category/" . $image_name;
+                $destination_path = "../images/category/" . $image_name; //    ../images/category/Food_Category_262.jpg
 
                 //Finally Upload the Image
                 $upload = move_uploaded_file($source_path, $destination_path);
