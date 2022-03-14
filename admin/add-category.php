@@ -141,7 +141,7 @@ name is the original name of the file which is store on the local machine. -->
                 $destination_path = "../images/category/" . $image_name; //    ../images/category/Food_Category_262.jpg
 
                 //Finally Upload the Image
-                $upload = move_uploaded_file($source_path, $destination_path);
+                $upload = move_uploaded_file($source_path, $destination_path); // hayde hye li bt3mol upload bel vscode only (php function)
 
 
 
