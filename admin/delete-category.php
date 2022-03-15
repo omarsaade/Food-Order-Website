@@ -10,6 +10,7 @@ if (isset($_GET['id']) and isset($_GET['image_name'])) {
     $id = $_GET['id'];
     $image_name = $_GET['image_name'];
 
+
     //Remove the physcial image file if available
     if ($image_name != "") {
         //image is available , so remove it
@@ -17,7 +18,7 @@ if (isset($_GET['id']) and isset($_GET['image_name'])) {
         //Remove the Image
         $remove = unlink($path); //true yaane removed
 
-        //ifa failed to remove image then add an error message and stop the process
+        //if  failed to remove image then add an error message and stop the process
         if ($remove == false) {
             //set the session message 
             $_SESSION['remove'] = "<div class='error'>Failed to remove category image</div>";

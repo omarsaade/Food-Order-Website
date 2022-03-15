@@ -124,38 +124,48 @@ name is the original name of the file which is store on the local machine. -->
                 //to upload image we need , image name , source path and destination path
                 $image_name = $_FILES['image']['name']; // he fia esem el sura bas  => Screenshot (51).png
 
-
-                //AUto rename our image
-                //Get the Extension of our image (jpg,png,gif,etc) e.g "food1.jpg"
-                //explode function to get the extension (.jpg)
-                $ext = end(explode('.', $image_name)); //ne7sal 3al jpg
-
-                //Rename the Image now
-                $image_name = "Food_category_" . rand(000, 999) . '.' . $ext; //e.g. 
-                //Food_Category_262.jpg
+                //upload the image only if image is selected
+                if ($image_name != "") {
 
 
 
-                $source_path = $_FILES['image']['tmp_name']; //  he fia el esem wel tempor location   =>C:\xampp\tmp\php79FB.tmp
-
-                $destination_path = "../images/category/" . $image_name; //    ../images/category/Food_Category_262.jpg
-
-                //Finally Upload the Image
-                $upload = move_uploaded_file($source_path, $destination_path); // hayde hye li bt3mol upload bel vscode only (php function)
 
 
 
-                //check whether the image is uploaded or not
-                //And if the image is not uploaded then we will stop the process and redirect with error message
 
-                if ($upload == false) {
 
-                    //set message
-                    $_SESSION['upload'] = "<div class='error'>Failed to upload Image.</div>";
-                    //Redirect to add category page
-                    header('location:' . SITEURL . 'admin/add-category.php');
-                    //stop the Process
-                    die();
+                    //AUto rename our image
+                    //Get the Extension of our image (jpg,png,gif,etc) e.g "food1.jpg"
+                    //explode function to get the extension (.jpg)
+                    $ext = end(explode('.', $image_name)); //ne7sal 3al jpg
+
+                    //Rename the Image now
+                    $image_name = "Food_category_" . rand(000, 999) . '.' . $ext; //e.g. 
+                    //Food_Category_262.jpg
+
+
+
+                    $source_path = $_FILES['image']['tmp_name']; //  he fia el esem wel tempor location   =>C:\xampp\tmp\php79FB.tmp
+
+                    $destination_path = "../images/category/" . $image_name; //    ../images/category/Food_Category_262.jpg
+
+                    //Finally Upload the Image
+                    $upload = move_uploaded_file($source_path, $destination_path); // hayde hye li bt3mol upload bel vscode only (php function)
+
+
+
+                    //check whether the image is uploaded or not
+                    //And if the image is not uploaded then we will stop the process and redirect with error message
+
+                    if ($upload == false) {
+
+                        //set message
+                        $_SESSION['upload'] = "<div class='error'>Failed to upload Image.</div>";
+                        //Redirect to add category page
+                        header('location:' . SITEURL . 'admin/add-category.php');
+                        //stop the Process
+                        die();
+                    }
                 }
             } else {
                 //Dont upload Image and set the image_name value as blank
