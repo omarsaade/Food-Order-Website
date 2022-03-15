@@ -99,7 +99,7 @@
 
                 <tr>
 
-                    <td>Featured:</td>
+                    <td>Active:</td>
 
                     <td>
                         <input <?php if ($active == "Yes") {
