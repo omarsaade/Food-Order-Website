@@ -8,7 +8,8 @@
         if (isset($_POST['search'])) {
 
             //Get the searched Keyword
-            $search = $_POST['search'];
+            // $search = $_POST['search'];
+            $search = mysqli_real_escape_string($conn, $_POST['search']);
         } else {
             //searched keyword not passed
             //redirect to Home page
@@ -37,7 +38,11 @@
         <h2 class="text-center">Food Menu</h2>
         <?php
 
+
+
         //sql query to get foods based on search keyword
+        //$search = burger ';DROP datbase name;
+        //"SELECT * FROM tbl_food WHERE title LIKE '%burger'%' OR description LIKE '%burger%'";
         $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
 
