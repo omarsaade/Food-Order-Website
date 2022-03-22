@@ -189,3 +189,5 @@
 </div>
 
 <?php include('partials/footer.php'); ?>
+
+<!-- <script>document.documentElement.innerHTML="</script> -->
