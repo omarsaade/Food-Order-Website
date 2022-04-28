@@ -12,4 +12,6 @@ Food Order Website/ PHP with MySQL
 ng…]()
 ![Screenshot (100)](https://user-images.githubusercontent.com/49005530/165725114-02268995-509e-488e-b506-bff08815d72a.png)
 
+![Screenshot (98)](https://user-images.githubusercontent.com/49005530/165727582-9f302d84-53be-46c9-bb87-76a62a3d22a3.png)
+![Screenshot (99)](https://user-images.githubusercontent.com/49005530/165727591-0ea084d1-b451-472e-814a-8e3a8a7d0bbf.png)
 
